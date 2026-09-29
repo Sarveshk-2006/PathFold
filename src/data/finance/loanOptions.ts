@@ -1,0 +1,91 @@
+import type { LoanOption } from '@/types';
+
+export const loanOptions: LoanOption[] = [
+  {
+    id: 'loan-sbi-scholar',
+    provider: 'SBI Scholar Loan Scheme (Govt Premier Institutes)',
+    annualInterestRate: 8.15,
+    maxLoanAmount: 2000000,
+    tenureYears: 7,
+    processingFee: 0,
+    moratoriumMonths: 12, // Course duration + 12 months
+    notes: 'Zero collateral for premier engineering/medical colleges (IITs, NITs, COEP). Concessional rate for female students (-0.5%).',
+    evidence: {
+      sourceName: 'SBI Education Loan Policy Guidelines 2025',
+      sourceType: 'Public Sector Bank Rate Circular',
+      verifiedDate: '2025-06-01',
+      confidence: 'prototype',
+      notes: 'Rate benchmarked against SBI EBLR (External Benchmark Lending Rate).',
+    },
+    assumptions: [
+      'Simple interest charged during course moratorium period.',
+      'Repayment starts 12 months after course completion or 6 months after obtaining job.',
+    ],
+    requiresCollateral: false,
+  },
+  {
+    id: 'loan-hdfc-credila',
+    provider: 'HDFC Credila Dedicated Education Loan',
+    annualInterestRate: 9.5,
+    maxLoanAmount: 2500000,
+    tenureYears: 5,
+    processingFee: 1.0,
+    moratoriumMonths: 6,
+    notes: 'Fast 48-hour approval for private and deemed universities. Covers tuition, living, and laptop expenses.',
+    evidence: {
+      sourceName: 'HDFC Credila Product Sheet 2025',
+      sourceType: 'Private NBFC Rate Sheet',
+      verifiedDate: '2025-05-15',
+      confidence: 'prototype',
+      notes: 'Requires co-borrower (parent/guardian with salary/ITR).',
+    },
+    assumptions: [
+      '1% processing fee charged upfront.',
+      'Co-borrower income proof required.',
+    ],
+    requiresCollateral: false,
+  },
+  {
+    id: 'loan-canara-vidya',
+    provider: 'Canara Bank Vidya Turant Scheme',
+    annualInterestRate: 8.4,
+    maxLoanAmount: 1500000,
+    tenureYears: 5,
+    processingFee: 0,
+    moratoriumMonths: 12,
+    notes: 'Special concessional loan scheme for recognized state and central universities.',
+    evidence: {
+      sourceName: 'Canara Bank Vidya Turant Terms 2025',
+      sourceType: 'PSU Bank Official Portal',
+      verifiedDate: '2025-04-10',
+      confidence: 'prototype',
+      notes: 'No processing fee for premier state institutes.',
+    },
+    assumptions: [
+      'No collateral required for loans up to ₹7.5 Lakhs under CSIS interest subsidy.',
+    ],
+    requiresCollateral: false,
+  },
+  {
+    id: 'loan-zero-interest',
+    provider: 'Institutional Zero-Interest Equal EMI (Special Support)',
+    annualInterestRate: 0.0,
+    maxLoanAmount: 500000,
+    tenureYears: 3,
+    processingFee: 0,
+    moratoriumMonths: 0,
+    notes: 'Special emergency institutional zero-interest repayment plan split evenly across tenure.',
+    evidence: {
+      sourceName: 'Prototype Zero-Interest Benchmark Scheme',
+      sourceType: 'Illustrative Financial Benchmark',
+      verifiedDate: '2025-01-01',
+      confidence: 'prototype',
+      notes: 'Used to verify zero-interest handling in finance engine.',
+    },
+    assumptions: [
+      'Zero interest rate charged.',
+      'Equal monthly instalments.',
+    ],
+    requiresCollateral: false,
+  },
+];

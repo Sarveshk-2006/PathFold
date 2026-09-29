@@ -1,0 +1,63 @@
+import type { Scholarship } from '@/types';
+
+export const scholarships: Scholarship[] = [
+  {
+    id: 'sch-central-sector',
+    name: 'Central Sector Scheme of Scholarships for College & University Students',
+    provider: 'Ministry of Education, Govt of India',
+    amount: 80000,
+    eligibility: ['Class 12 Score > 80th percentile', 'Family Income < ₹4.5 Lakh / year', 'Regular UG Course'],
+    deadline: '2025-10-31',
+    applicablePathways: ['pathway-btech-cse', 'pathway-bsc-cs', 'pathway-bca', 'pathway-mbbs'],
+    evidence: {
+      sourceName: 'National Scholarship Portal (NSP) Guidelines 2025',
+      sourceType: 'Government Portal Official Scheme',
+      verifiedDate: '2025-06-01',
+      confidence: 'prototype',
+      notes: '₹12,000/yr for 1st 3 yrs, ₹20,000/yr for 4th & 5th yr.',
+    },
+    assumptions: [
+      'Scholarship subject to annual renewal based on 50%+ marks in college exams.',
+    ],
+    renewable: true,
+    amountINR: 80000,
+  },
+  {
+    id: 'sch-aicte-pragati',
+    name: 'AICTE Pragati & Saksham Scholarship for Tech Education',
+    provider: 'AICTE',
+    amount: 50000,
+    eligibility: ['Female students admitted to AICTE approved tech institutes', 'Family Income < ₹8.0 Lakh / year'],
+    deadline: '2025-11-15',
+    applicablePathways: ['pathway-btech-cse'],
+    evidence: {
+      sourceName: 'AICTE Pragati Circular 2025',
+      sourceType: 'AICTE Portal',
+      verifiedDate: '2025-05-20',
+      confidence: 'prototype',
+      notes: '₹50,000 per annum towards tuition and equipment fee.',
+    },
+    assumptions: ['Max 2 girls per family.'],
+    renewable: true,
+    amountINR: 50000,
+  },
+  {
+    id: 'sch-post-matric-merit',
+    name: 'Post-Matric Merit & EBC Tuition Subsidy',
+    provider: 'State Govt Social Justice Department',
+    amount: 50000,
+    eligibility: ['State Domicile', 'Class 10/12 Score >= 75%', 'Family Income < ₹8.0 Lakh / year'],
+    deadline: '2025-12-31',
+    applicablePathways: ['pathway-btech-cse', 'pathway-bsc-cs', 'pathway-ca-finance'],
+    evidence: {
+      sourceName: 'State MahaDBT Portal Guidelines 2025',
+      sourceType: 'State Govt Welfare Portal',
+      verifiedDate: '2025-04-15',
+      confidence: 'prototype',
+      notes: 'Covers 50% of tuition fee for EBC category in state autonomous colleges.',
+    },
+    assumptions: ['Requires valid income certificate issued by Tehsildar.'],
+    renewable: true,
+    amountINR: 50000,
+  },
+];

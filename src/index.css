@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand */
+  --color-navy-900: #0F2240;
+  --color-navy-800: #1E3A5F;
+  --color-navy-700: #2A4E7F;
+  --color-navy-600: #2E5B96;
+  --color-navy-500: #3A6BAD;
+  --color-navy-400: #5B87C5;
+  --color-navy-200: #C2D5EC;
+  --color-navy-100: #EBF1F9;
+  --color-navy-50:  #F5F8FD;
+
+  /* Neutral */
+  --color-neutral-950: #0A0A0B;
+  --color-neutral-900: #111827;
+  --color-neutral-800: #1F2937;
+  --color-neutral-700: #374151;
+  --color-neutral-600: #4B5563;
+  --color-neutral-500: #6B7280;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-50:  #F9FAFB;
+
+  /* Surface */
+  --color-surface: #FFFFFF;
+  --color-bg: #F5F7FA;
+  --color-border: #E5E7EB;
+
+  /* Semantic */
+  --color-success-700: #065F46;
+  --color-success-600: #059669;
+  --color-success-100: #D1FAE5;
+  --color-success-50:  #ECFDF5;
+
+  --color-warning-700: #92400E;
+  --color-warning-600: #D97706;
+  --color-warning-100: #FEF3C7;
+  --color-warning-50:  #FFFBEB;
+
+  --color-danger-700:  #991B1B;
+  --color-danger-600:  #DC2626;
+  --color-danger-100:  #FEE2E2;
+  --color-danger-50:   #FEF2F2;
+
+  --color-accent-600:  #2563EB;
+  --color-accent-500:  #3B82F6;
+  --color-accent-100:  #DBEAFE;
+  --color-accent-50:   #EFF6FF;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: #F5F7FA;
+  color: #111827;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* ─── Focus Ring ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #2E5B96;
+  outline-offset: 2px;
+}
+
+/* ─── Transitions ───────────────────────────────────────── */
+.transition-card {
+  transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+.transition-card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+/* ─── React Flow overrides ──────────────────────────────── */
+.react-flow__node {
+  border-radius: 8px;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+.react-flow__controls {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+}
+.react-flow__controls button {
+  border: none;
+  background: white;
+  color: #374151;
+}
+.react-flow__attribution {
+  display: none;
+}
+
+/* ─── Page transitions ──────────────────────────────────── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: fadeSlideIn 0.25s ease forwards;
+}
+
+/* ─── Skeleton shimmer ──────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}

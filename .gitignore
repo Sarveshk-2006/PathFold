@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build and Dependencies
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+*.pem
+*.key
+*service-account*.json
+firebase-credentials.json
+supabase-credentials.json
+
+# Editor & System Directories
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary / OS
+thumbs.db
+desktop.ini
