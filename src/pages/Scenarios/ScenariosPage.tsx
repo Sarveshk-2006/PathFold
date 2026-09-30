@@ -60,15 +60,15 @@ export function ScenariosPage() {
   };
 
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-6xl mx-auto">
+    <div className="page-container space-y-6">
       {/* Page Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-neutral-900">What-If Decision Simulator</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">What-If Decision Simulator</h1>
             <Badge variant="navy" size="sm">Phase 3 Scenario Engine</Badge>
           </div>
-          <p className="text-sm text-neutral-500 mt-1">
+          <p className="text-sm text-neutral-500 mt-1 max-w-2xl">
             Test what happens when reality shifts (budget shocks, missed exam ranks, or location constraints) without risking your baseline plan.
           </p>
         </div>
@@ -77,13 +77,14 @@ export function ScenariosPage() {
           variant="outline"
           size="sm"
           onClick={handleResetToBaseline}
-          className="gap-1.5 text-neutral-600 border-neutral-300"
+          className="gap-1.5 text-neutral-600 border-neutral-300 shrink-0 cursor-pointer"
           id="reset-scenario-btn"
         >
           <RotateCcw className="h-3.5 w-3.5" />
           Reset to Baseline
         </Button>
       </div>
+
 
       {/* Section A: Baseline Profile Overview */}
       <Card className="bg-navy-900 text-white border-navy-800 shadow-sm">

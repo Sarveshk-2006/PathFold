@@ -179,9 +179,15 @@ export function Sidebar({
   );
 }
 
-export function MobileSidebar() {
+interface MobileSidebarProps {
+  viewMode?: 'student' | 'parent';
+  onViewModeChange?: (mode: 'student' | 'parent') => void;
+}
+
+export function MobileSidebar({ viewMode = 'student', onViewModeChange }: MobileSidebarProps) {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+
 
   return (
     <>
@@ -229,22 +235,72 @@ export function MobileSidebar() {
                       to={item.to}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all',
+                        'flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-medium transition-all',
                         isActive
-                          ? 'bg-navy-50 text-navy-800 font-semibold'
+                          ? 'bg-navy-50 text-navy-900 font-semibold shadow-xs'
                           : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900'
                       )}
                     >
-                      <item.icon className={cn('h-[18px] w-[18px]', isActive ? 'text-navy-700' : 'text-neutral-400')} />
+                      <item.icon className={cn('h-5 w-5 flex-shrink-0', isActive ? 'text-navy-700' : 'text-neutral-400')} />
                       {item.label}
                     </NavLink>
                   );
                 })}
               </div>
             </nav>
+
+            {/* Mobile Footer Section */}
+            <div className="border-t border-neutral-100 p-3.5 space-y-3">
+              {/* View mode toggle for mobile */}
+              <div className="flex items-center bg-neutral-100 p-1 rounded-lg gap-1">
+                <button
+                  id="mobile-view-toggle-student"
+                  onClick={() => { onViewModeChange?.('student'); setOpen(false); }}
+                  className={cn(
+                    'flex-1 flex items-center justify-center gap-1.5 px-2 py-2 rounded-md text-xs font-semibold transition-all',
+                    viewMode === 'student'
+                      ? 'bg-white text-navy-900 shadow-xs'
+                      : 'text-neutral-600 hover:text-neutral-900'
+                  )}
+                >
+                  <BookOpen className="h-3.5 w-3.5" />
+                  Student View
+                </button>
+                <button
+                  id="mobile-view-toggle-parent"
+                  onClick={() => { onViewModeChange?.('parent'); setOpen(false); }}
+                  className={cn(
+                    'flex-1 flex items-center justify-center gap-1.5 px-2 py-2 rounded-md text-xs font-semibold transition-all',
+                    viewMode === 'parent'
+                      ? 'bg-white text-navy-900 shadow-xs'
+                      : 'text-neutral-600 hover:text-neutral-900'
+                  )}
+                >
+                  <Users className="h-3.5 w-3.5" />
+                  Parent View
+                </button>
+              </div>
+
+              {/* Student Profile Link */}
+              <NavLink
+                to="/profile"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-neutral-50 border border-neutral-200 hover:bg-neutral-100 transition-colors"
+              >
+                <div className="h-9 w-9 rounded-full bg-navy-800 flex items-center justify-center text-white text-xs font-bold">
+                  {getInitials(demoStudent.name)}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-bold text-navy-900 truncate">{demoStudent.name}</p>
+                  <p className="text-[11px] text-neutral-500">Class {demoStudent.class} · {demoStudent.board}</p>
+                </div>
+                <ChevronRight className="h-4 w-4 text-neutral-400" />
+              </NavLink>
+            </div>
           </div>
         </div>
       )}
     </>
   );
 }
+

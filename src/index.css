@@ -101,7 +101,33 @@ body {
   transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 }
 .transition-card:hover {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  box-shadow: 0 4px 12px -2px rgba(15, 34, 64, 0.08), 0 2px 4px -1px rgba(15, 34, 64, 0.04);
+}
+
+/* ─── Page Container Utility ────────────────────────────── */
+.page-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem 1rem;
+}
+@media (min-width: 640px) {
+  .page-container {
+    padding: 1.5rem 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .page-container {
+    padding: 1.75rem 2rem;
+  }
+}
+
+/* ─── Responsive Table Container ────────────────────────── */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.75rem;
 }
 
 /* ─── React Flow overrides ──────────────────────────────── */
@@ -124,11 +150,20 @@ body {
 
 /* ─── Page transitions ──────────────────────────────────── */
 @keyframes fadeSlideIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .page-enter {
-  animation: fadeSlideIn 0.25s ease forwards;
+  animation: fadeSlideIn 0.2s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+  .transition-card {
+    transition: none;
+  }
 }
 
 /* ─── Skeleton shimmer ──────────────────────────────────── */
@@ -142,3 +177,4 @@ body {
   animation: shimmer 1.5s infinite;
   border-radius: 6px;
 }
+

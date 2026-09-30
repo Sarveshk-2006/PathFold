@@ -37,27 +37,27 @@ export function FinancePage() {
   const [showAssumptions, setShowAssumptions] = useState(false);
 
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-6xl mx-auto">
+    <div className="page-container space-y-6">
       {/* Page Header & Institution Selector */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-neutral-900">Finance Planner & Funding Stack</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">Finance Planner & Funding Stack</h1>
             <Badge variant="navy" size="sm">Phase 2 Dynamic Engine</Badge>
           </div>
-          <p className="text-sm text-neutral-500 mt-1">
+          <p className="text-sm text-neutral-500 mt-1 max-w-2xl">
             Calculate realistic funding gaps, explore scholarship combinations, and compare loan EMI scenarios.
           </p>
         </div>
 
         {/* Institution selector */}
-        <div className="flex items-center gap-2 bg-white p-2 rounded-xl border border-neutral-200 shadow-sm">
+        <div className="flex items-center gap-2 bg-white p-2 rounded-xl border border-neutral-200 shadow-xs shrink-0 max-w-full">
           <Building2 className="h-4 w-4 text-navy-700 shrink-0 ml-1" />
-          <span className="text-xs font-semibold text-neutral-500">Target Institute:</span>
+          <span className="text-xs font-semibold text-neutral-500 hidden sm:inline">Target Institute:</span>
           <select
             value={activeInstitutionId}
             onChange={(e) => setActiveInstitutionId(e.target.value)}
-            className="text-xs font-bold text-navy-900 bg-neutral-100 px-2.5 py-1.5 rounded-lg border-0 focus:ring-2 focus:ring-navy-500 cursor-pointer"
+            className="text-xs font-bold text-navy-900 bg-neutral-100 px-2.5 py-1.5 rounded-lg border-0 focus:ring-2 focus:ring-navy-500 cursor-pointer max-w-[200px] truncate"
           >
             {colleges.map((c) => (
               <option key={c.id} value={c.id}>
@@ -67,6 +67,7 @@ export function FinancePage() {
           </select>
         </div>
       </div>
+
 
       {/* Visual Funding Stack Section */}
       <Card id="finance-funding-stack" className="border-navy-200 shadow-sm overflow-hidden">

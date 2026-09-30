@@ -21,8 +21,9 @@ export function AppLayout() {
 
       {/* Main area */}
       <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-        <TopBar viewMode={viewMode} />
+        <TopBar viewMode={viewMode} onViewModeChange={setViewMode} />
         <main className="flex-1 overflow-y-auto">
+
           <div className="page-enter">
             <Outlet />
           </div>

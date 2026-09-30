@@ -35,27 +35,27 @@ export function PlanBCPage() {
   const planTree = generatePlanTree(demoStudent, 'pathway-btech-cse', activeScenarioResult);
 
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-6xl mx-auto">
+    <div className="page-container space-y-6">
       {/* Page Header & Scenario Simulator Trigger */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-neutral-900">Plan B / Plan C Decision Tree</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">Plan B / Plan C Decision Tree</h1>
             <Badge variant="navy" size="sm">Phase 3 Dynamic Tree</Badge>
           </div>
-          <p className="text-sm text-neutral-500 mt-1">
+          <p className="text-sm text-neutral-500 mt-1 max-w-2xl">
             Always preserve backup routes before committing. Plan B & C activate automatically when dependencies fail.
           </p>
         </div>
 
         {/* Quick Scenario Dependency Selector */}
-        <div className="flex items-center gap-2 bg-white p-2 rounded-xl border border-neutral-200 shadow-sm">
+        <div className="flex items-center gap-2 bg-white p-2 rounded-xl border border-neutral-200 shadow-xs shrink-0 max-w-full">
           <GitBranch className="h-4 w-4 text-navy-700 shrink-0 ml-1" />
-          <span className="text-xs font-semibold text-neutral-500">Test Trigger Condition:</span>
+          <span className="text-xs font-semibold text-neutral-500 hidden sm:inline">Test Trigger Condition:</span>
           <select
             value={activeScenarioPreset}
             onChange={(e) => setActiveScenarioPreset(e.target.value)}
-            className="text-xs font-bold text-navy-900 bg-neutral-100 px-2.5 py-1.5 rounded-lg border-0 focus:ring-2 focus:ring-navy-500 cursor-pointer"
+            className="text-xs font-bold text-navy-900 bg-neutral-100 px-2.5 py-1.5 rounded-lg border-0 focus:ring-2 focus:ring-navy-500 cursor-pointer max-w-[210px] truncate"
           >
             <option value="none">Baseline Plan (No Trigger)</option>
             <option value="preset-entrance-fail">Simulate JEE Gate Missed (Trigger Plan B)</option>
@@ -73,6 +73,7 @@ export function PlanBCPage() {
           )}
         </div>
       </div>
+
 
       {/* Primary Goal & Dependency Summary */}
       <div className="rounded-xl bg-navy-900 text-white p-5 space-y-2 shadow-sm">

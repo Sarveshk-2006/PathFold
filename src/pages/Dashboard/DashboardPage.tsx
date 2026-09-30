@@ -71,45 +71,52 @@ export function DashboardPage() {
   );
 
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-7xl mx-auto">
-      {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-bold text-neutral-900">{student.name}'s Future Map</h1>
-          <div className="flex flex-wrap items-center gap-2 mt-1.5">
-            <Badge variant="navy">Class {student.class}</Badge>
-            <span className="text-neutral-300">·</span>
-            <span className="text-sm text-neutral-500">{student.location}, {student.state}</span>
-            <span className="text-neutral-300">·</span>
-            <span className="text-sm text-neutral-500">{student.board}</span>
-            <span className="text-neutral-300">·</span>
-            <span className="text-sm font-semibold text-neutral-700">{student.overallPercentage}%</span>
-            <span className="text-neutral-300">·</span>
-            <span className="text-sm text-neutral-500">{formatCurrency(student.budgetINR, true)} budget</span>
+    <div className="page-container space-y-6">
+      {/* Student Primary Decision Hero Banner */}
+      <div className="bg-white border border-neutral-200 rounded-2xl p-5 md:p-6 shadow-xs relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-navy-50/50 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16" />
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 relative z-10">
+          <div className="space-y-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-navy-100 text-navy-800 border border-navy-200">
+                Class 10 Student Profile
+              </span>
+              <span className="text-xs font-semibold text-neutral-500">• {student.location}, {student.state}</span>
+              <span className="text-xs font-semibold text-neutral-500">• {student.board} Board</span>
+            </div>
+            <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">
+              {student.name}'s Education & Career Map
+            </h1>
+            <p className="text-sm text-neutral-600 max-w-2xl leading-relaxed">
+              Target Goal: <strong className="text-navy-900 font-semibold">{primaryPathway.name}</strong> ({primaryPathway.stream} Stream) • Baseline Aggregate: <strong className="text-navy-900 font-semibold">{student.overallPercentage}%</strong> • Family Budget: <strong className="text-navy-900 font-semibold">{formatCurrency(student.budgetINR, true)}</strong>
+            </p>
           </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button
-            id="dashboard-explore-paths"
-            variant="secondary"
-            size="sm"
-            onClick={() => navigate('/pathways')}
-          >
-            <GitBranch className="h-4 w-4 mr-1" />
-            Explore Paths
-          </Button>
-          <Button
-            id="dashboard-view-map"
-            size="sm"
-            onClick={() => navigate('/future-map')}
-          >
-            <Map className="h-4 w-4 mr-1" />
-            Full Map
-          </Button>
+          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+            <Button
+              id="dashboard-explore-paths"
+              variant="secondary"
+              size="md"
+              onClick={() => navigate('/pathways')}
+              className="gap-1.5"
+            >
+              <GitBranch className="h-4 w-4 text-navy-700" />
+              Explore Paths
+            </Button>
+            <Button
+              id="dashboard-view-map"
+              size="md"
+              onClick={() => navigate('/future-map')}
+              className="gap-1.5 bg-navy-800 hover:bg-navy-900 text-white"
+            >
+              <Map className="h-4 w-4" />
+              Interactive Map
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Summary Stats (Calculated dynamically via evaluation Engine) */}
+
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           id="stat-paths"

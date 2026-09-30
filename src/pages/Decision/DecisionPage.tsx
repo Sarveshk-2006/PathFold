@@ -37,13 +37,14 @@ const decisions = [
 
 export function DecisionPage() {
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-3xl">
+    <div className="page-container space-y-6 max-w-4xl">
       <div>
-        <h1 className="text-2xl font-bold text-neutral-900">Decision Centre</h1>
-        <p className="text-sm text-neutral-500 mt-1">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">Decision Centre</h1>
+        <p className="text-sm text-neutral-500 mt-1 max-w-2xl">
           Track and justify your key education decisions. Each choice should be made with clear reasoning.
         </p>
       </div>
+
 
       {/* Summary */}
       <div className="rounded-xl bg-neutral-50 border border-neutral-200 px-5 py-4">

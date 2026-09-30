@@ -39,15 +39,15 @@ export function ComparePage() {
   }));
 
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-6xl mx-auto">
+    <div className="page-container space-y-6">
       {/* Header & Institution Selection Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-neutral-900">Compare Institutions & Programmes</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">Compare Institutions & Programmes</h1>
             <Badge variant="navy" size="sm">Phase 2 Factual Compare</Badge>
           </div>
-          <p className="text-sm text-neutral-500 mt-1">
+          <p className="text-sm text-neutral-500 mt-1 max-w-2xl">
             Factual side-by-side cost breakdown, admission prerequisites, and funding gap analysis against Aarav's ₹6.0L budget.
           </p>
         </div>
@@ -55,8 +55,8 @@ export function ComparePage() {
         {/* Action button */}
         <Button
           variant="primary"
-          size="sm"
-          className="gap-1.5"
+          size="md"
+          className="gap-1.5 shrink-0"
           onClick={() => navigate('/finance')}
         >
           Open Finance Planner
@@ -67,7 +67,7 @@ export function ComparePage() {
       {/* Selector pills for 2-4 institutions */}
       <Card className="bg-neutral-50/70 border-neutral-200">
         <CardContent className="py-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <Building2 className="h-4 w-4 text-navy-700 shrink-0" />
               <span className="text-xs font-bold text-neutral-800 uppercase tracking-wider">
@@ -82,7 +82,7 @@ export function ComparePage() {
                   <button
                     key={inst.id}
                     onClick={() => toggleInstitutionSelection(inst.id)}
-                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 ${
+                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer ${
                       isSelected
                         ? 'bg-navy-900 text-white border-navy-900 shadow-2xs'
                         : 'bg-white text-neutral-700 border-neutral-200 hover:bg-neutral-100'
@@ -97,6 +97,7 @@ export function ComparePage() {
           </div>
         </CardContent>
       </Card>
+
 
       {/* Comparison Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">

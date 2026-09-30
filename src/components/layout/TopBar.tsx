@@ -18,16 +18,18 @@ const pageTitles: Record<string, string> = {
 
 interface TopBarProps {
   viewMode?: 'student' | 'parent';
+  onViewModeChange?: (mode: 'student' | 'parent') => void;
 }
 
-export function TopBar({ viewMode = 'student' }: TopBarProps) {
+export function TopBar({ viewMode = 'student', onViewModeChange }: TopBarProps) {
   const location = useLocation();
   const pageTitle = pageTitles[location.pathname] ?? 'CareerPath';
 
   return (
     <header className="flex items-center gap-3 px-5 h-14 bg-white border-b border-neutral-200 sticky top-0 z-30">
       {/* Mobile menu */}
-      <MobileSidebar />
+      <MobileSidebar viewMode={viewMode} onViewModeChange={onViewModeChange} />
+
 
       {/* Page title */}
       <div className="flex-1 min-w-0">

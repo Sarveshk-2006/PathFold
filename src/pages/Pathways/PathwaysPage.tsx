@@ -18,28 +18,28 @@ export function PathwaysPage() {
   });
 
   return (
-    <div className="p-5 md:p-7 space-y-6 max-w-6xl mx-auto">
+    <div className="page-container space-y-6">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-neutral-900">Explore Education Pathways</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-2xl md:text-3xl font-extrabold text-navy-900 tracking-tight">Explore Education Pathways</h1>
             <Badge variant="navy" size="sm">Phase 1 Engine Active</Badge>
           </div>
-          <p className="text-sm text-neutral-500 mt-1">
+          <p className="text-sm text-neutral-500 mt-1 max-w-2xl">
             Compare structured education-to-career routes evaluated deterministically against Aarav's academic profile & budget.
           </p>
         </div>
 
         {/* Stream Filters */}
-        <div className="flex items-center bg-white p-1 rounded-xl border border-neutral-200 shadow-sm">
+        <div className="flex items-center bg-white p-1 rounded-xl border border-neutral-200 shadow-xs overflow-x-auto shrink-0 max-w-full">
           {(['All', 'PCM', 'PCB', 'Commerce'] as const).map((stream) => (
             <button
               key={stream}
               onClick={() => setSelectedStream(stream)}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
                 selectedStream === stream
-                  ? 'bg-navy-900 text-white shadow-sm'
+                  ? 'bg-navy-900 text-white shadow-xs'
                   : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
@@ -48,6 +48,7 @@ export function PathwaysPage() {
           ))}
         </div>
       </div>
+
 
       {/* Pathway Cards List */}
       <div className="space-y-5">

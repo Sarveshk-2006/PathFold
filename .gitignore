@@ -39,3 +39,5 @@ supabase-credentials.json
 # Temporary / OS
 thumbs.db
 desktop.ini
+
+.vercel
